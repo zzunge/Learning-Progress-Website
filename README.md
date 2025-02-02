@@ -40,3 +40,69 @@ cd Learning-Progress-Website
 ```
 
 ---
+
+### **2. Set Up the Database**
+1. Open **MySQL Workbench** or use the MySQL command line.
+2. Create a new database:
+   ```sql
+   CREATE DATABASE LectureEvaluation;
+   ```
+3. Use the database:
+   ```sql
+   USE LectureEvaluation;
+   ```
+4. Import the provided `schema.sql` file (if available):
+   ```sh
+   mysql -u root -p LectureEvaluation < schema.sql
+   ```
+5. If no SQL file is available, manually create the necessary tables:
+   ```sql
+   CREATE TABLE USER (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       userID VARCHAR(50) UNIQUE NOT NULL,
+       userPassword VARCHAR(255) NOT NULL,
+       userEmail VARCHAR(100) UNIQUE NOT NULL
+   );
+
+   CREATE TABLE EVALUATION (
+       id INT AUTO_INCREMENT PRIMARY KEY,
+       userID VARCHAR(50) NOT NULL,
+       lectureName VARCHAR(100) NOT NULL,
+       professorName VARCHAR(100) NOT NULL,
+       lectureYear INT NOT NULL,
+       evaluationTitle VARCHAR(255) NOT NULL,
+       evaluationContent TEXT NOT NULL
+   );
+   ```
+---
+
+### **3. Configure the Project in Eclipse**
+1. Open **Eclipse** and select **File → Import → Existing Projects into Workspace**.
+2. Browse to the **Lecture Evaluation** project folder and import it.
+3. Configure **Apache Tomcat**:
+   - Go to **Window → Preferences → Server → Runtime Environments**.
+   - Click **Add**, select **Apache Tomcat**, and provide the installation path.
+   - Set up a new **Tomcat Server** from **Servers tab**.
+
+---
+### **4. Configure Database Connection**
+1. Open the `DatabaseUtil.java` file.
+2. Modify the database connection details:
+   ```java
+   private static final String DB_URL = "jdbc:mysql://localhost:3306/LectureEvaluation";
+   private static final String DB_USER = "root"; 
+   private static final String DB_PASSWORD = "gPwjd@99"; 
+   ```
+3. Ensure the **JDBC Driver** is included in the project's `lib` folder.
+
+---
+### **5. Run the Project**
+1. In Eclipse, right-click on **Tomcat Server** in the **Servers** tab and click **Start**.
+2. Right-click on the project and select **Run on Server**.
+3. Open your browser and go to:
+   ```
+   [http://localhost:8082/Learning-Progress-Website/](http://localhost:8082/Lecture_Evaluation/)
+   ```
+4. The login page should appear. You can now register, log in, and use the bulletin board.
+
+---
