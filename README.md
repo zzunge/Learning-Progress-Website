@@ -35,7 +35,7 @@ Before running the application, make sure you have the following installed:
 ### **1. Clone the Repository**
 If you haven't already, clone the project using Git:
 ```sh
-git clone [https://github.com/your-repository/Learning-Progress-Website.git](https://github.com/zzunge/Learning-Progress-Website.git)
+git clone https://github.com/your-repository/Learning-Progress-Website.git
 cd Learning-Progress-Website
 ```
 
@@ -51,11 +51,7 @@ cd Learning-Progress-Website
    ```sql
    USE LectureEvaluation;
    ```
-4. Import the provided `schema.sql` file (if available):
-   ```sh
-   mysql -u root -p LectureEvaluation < schema.sql
-   ```
-5. If no SQL file is available, manually create the necessary tables:
+4. If no SQL file is available, manually create the necessary tables:
    ```sql
    CREATE TABLE USER (
        id INT AUTO_INCREMENT PRIMARY KEY,
@@ -101,8 +97,27 @@ cd Learning-Progress-Website
 2. Right-click on the project and select **Run on Server**.
 3. Open your browser and go to:
    ```
-   [http://localhost:8082/Learning-Progress-Website/](http://localhost:8082/Lecture_Evaluation/)
+   http://localhost:8082/Learning-Progress-Website/
    ```
 4. The login page should appear. You can now register, log in, and use the bulletin board.
+
+---
+### **6. Testing the Application**
+- Use sample credentials :
+  ```
+  userID: 123
+  password: 1234
+  ```
+- Try posting an evaluation and verify database updates.
+- Run all test cases to check functionality.
+
+---
+### **Troubleshooting**
+| Issue | Solution |
+|-------|----------|
+| Cannot connect to MySQL | Ensure MySQL is running and credentials are correct |
+| Tomcat startup issues | Check port conflicts or logs for errors |
+| Database table missing | Recreate tables using the schema provided |
+| Page not loading correctly | Clear browser cache or restart the server |
 
 ---
